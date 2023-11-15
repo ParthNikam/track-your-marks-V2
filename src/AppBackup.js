@@ -1,32 +1,26 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap"; // Import React Bootstrap components
 import SearchBar from "./components/SearchBar";
 import UserList from "./components/UserList";
 import UserProfile from "./components/UserProfile";
-import useStyles from "./AppStyles";
+import useStyles from "./AppStyles"; 
+
 
 function App() {
-  const classes = useStyles();
+  const classes = useStyles(); 
 
   return (
-    <Router  basename={window.location.pathname || ''}>
-      <div className={classes.titleContainer}> {/* Container for the title */}
-        <a href="/" style={{"textDecoration":"none"}}><h1 className={classes.title}>TRYM</h1></a>
-        {/* <h1 className={classes.title}>TRYM</h1> */}
+    <Router>
+      <Container className={classes.container}> {/* Apply the container style */}
+        <h1 className="text-center mb-4">User Search</h1>
 
-        <p className={classes.subtitle}>Track Your Marks</p>
-      </div>
-
-      <Container className={classes.container}>
         <Routes>
           {/* Route for the search page */}
-          <Route 
-            exact 
-            
+          <Route
             path="/"
             element={
-              <Card className={`mx-auto ${classes.card}`}>
+              <Card className={`mx-auto ${classes.card}`}> {/* Apply the card style */}
                 <Card.Body>
                   <SearchBar />
                 </Card.Body>
@@ -34,7 +28,6 @@ function App() {
             }
           />
           <Route
-            exact 
             path="/"
             element={
               <Card className="mx-auto mt-4" style={{ maxWidth: "400px" }}>
@@ -46,13 +39,9 @@ function App() {
           />
 
           {/* Route for displaying user profiles */}
-          <Route path="/:userId" element={<UserProfile />} />
+          <Route path="/profile/:userId" element={<UserProfile />} />
         </Routes>
       </Container>
-
-      <div className={classes.footer}> 
-        <p className={classes.subtitle}>TRYM was created by Parth Nikam.</p>
-      </div>
     </Router>
   );
 }

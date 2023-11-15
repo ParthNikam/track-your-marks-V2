@@ -1,0 +1,16 @@
+/* Dark Theme */
+body {
+  background-color: #0b2447;
+  color: #ffffff;
+}
+
+/* Color Palette */
+.btn-primary,
+.btn-secondary,
+.btn-info,
+.btn-light {
+  background-color: #19376d;
+  border-color: #19376d;
+  color: #ffffff;
+}
+
